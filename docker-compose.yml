@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    env_file:
+      - .env
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p ${PORT} -b '0.0.0.0'"
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  postgres_data:
