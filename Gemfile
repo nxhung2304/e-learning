@@ -52,6 +52,9 @@ group :development, :test do
 
   # Load environment variables from `.env` [https://github.com/bkeepers/dotenv]
   gem "dotenv-rails"
+
+  # Unit test [https://github.com/rspec/rspec-rails]
+  gem "rspec-rails", "~> 7.0.0"
 end
 
 group :development do
