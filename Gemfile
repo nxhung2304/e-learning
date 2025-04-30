@@ -54,7 +54,7 @@ group :development, :test do
   gem "dotenv-rails"
 
   # Unit test [https://github.com/rspec/rspec-rails]
-  gem "rspec-rails", "~> 7.0.0"
+  gem "rspec-rails", "~> 8.0.0"
 
   # A library for setting up Ruby objects as test data. [https://github.com/thoughtbot/factory_bot_rails]
   gem "factory_bot_rails"
